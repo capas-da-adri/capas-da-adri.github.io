@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://capas-da-adri-portfolio.adrianevalerioborges.chatgpt.site/sitemap.xml
+Sitemap: https://capas-da-adri.github.io/sitemap.xml
