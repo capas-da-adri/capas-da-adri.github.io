@@ -166,10 +166,11 @@
         <div class="quote-copy"><p class="eyebrow">Vamos conversar sobre seu livro?</p><h2 id="orcamento-title">Comece pelo<br /><em>seu briefing.</em></h2></div>
         <form class="quote-form" id="quoteForm">
           <label>Como posso te chamar?<input name="nome" type="text" placeholder="Seu nome" required /></label>
-          <label>Seu e-mail<input name="contato" type="email" placeholder="voce@email.com" required /></label>
+          <label>Seu e-mail<input name="email" type="email" placeholder="voce@email.com" required /></label>
           <label>O que você procura?<select name="servico" required><option value="">Selecione um serviço</option><option>Uma capa autoral</option><option>Uma capa premade</option><option>Diagramação editorial</option><option>Mais de um serviço</option></select></label>
-          <label>Conte um pouco sobre o livro<textarea name="livro" rows="3" placeholder="Gênero, título provisório, prazo ou o que achar importante"></textarea></label>
-          <button class="button button-gold" type="submit">Enviar pedido por e-mail <span>↗</span></button>
+          <label>Escreva sua mensagem sobre o projeto<textarea name="mensagem" rows="6" placeholder="Conte sobre o livro, gênero, título provisório, prazo e tudo o que for importante." required></textarea></label>
+          <label class="sr-only" aria-hidden="true">Não preencha este campo<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+          <button class="button button-gold" type="submit">Enviar pedido de orçamento <span>↗</span></button>
           <p class="form-helper" id="formHelper" role="status" aria-live="polite" hidden></p>
         </form>
       </section>
