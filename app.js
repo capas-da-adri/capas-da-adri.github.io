@@ -135,17 +135,40 @@ modal.querySelector('a').addEventListener('click', () => modal.close());
 
 const quoteForm = document.querySelector('#quoteForm');
 const helper = document.querySelector('#formHelper');
-quoteForm.addEventListener('submit', async (event) => {
+const quoteEndpoint = 'https://basfrphvvjfhbozxaeyw.supabase.co/functions/v1/quote-request';
+
+quoteForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  if (!quoteForm.reportValidity()) return;
+
+  const button = quoteForm.querySelector('button[type="submit"]');
   const form = new FormData(quoteForm);
-  const briefing = `Olá, Adri! Meu nome é ${form.get('nome')}.\n\nQuero solicitar orçamento para: ${form.get('servico')}.\nMeu contato: ${form.get('contato')}.\n\nSobre o livro:\n${form.get('livro') || 'Ainda vou contar os detalhes.'}`;
-  const assunto = 'Pedido de orçamento — Capas da Adri';
-  const mailbox = ['adrianevb', 'hotmail.com'].join('@');
-  const email = `mailto:${mailbox}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(briefing)}`;
-  try {
-    await navigator.clipboard.writeText(briefing);
-  } catch {}
-  helper.textContent = 'Sucesso! Seu formulário foi enviado.';
+  button.disabled = true;
   helper.hidden = false;
-  window.location.href = email;
+  helper.textContent = 'Enviando seu pedido…';
+
+  try {
+    const response = await fetch(quoteEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.get('nome'),
+        email: form.get('email'),
+        service: form.get('servico'),
+        message: form.get('mensagem'),
+        website: form.get('website'),
+      }),
+    });
+
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error('Falha no envio');
+
+    quoteForm.reset();
+    helper.textContent = 'Pedido enviado com sucesso. Em breve, respondo pelo e-mail informado.';
+  } catch {
+    helper.textContent = 'Não foi possível enviar agora. Tente novamente em alguns minutos.';
+  } finally {
+    button.disabled = false;
+  }
 });
