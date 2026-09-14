@@ -19,3 +19,12 @@
 .hero-proof{position:static;margin-top:clamp(2.25rem,5vw,4.5rem);max-width:100%;padding-top:.8rem}
 .scroll-cue{left:auto;right:clamp(1.25rem,4vw,4.5rem);bottom:.35rem;z-index:4}
 @media (max-width:800px){.hero-copy{padding-bottom:4.5rem}.hero-proof{margin-top:2rem}}
+
+/* Carta da Adri */
+.newsletter-section{background:#1b1b1a;color:#f6f1e8;padding:clamp(5rem,10vw,10rem) clamp(1.25rem,4vw,4.5rem);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,8vw,9rem);align-items:center}
+.newsletter-copy h2{font-size:clamp(3rem,6vw,6.4rem)}
+.newsletter-copy>p:not(.eyebrow){max-width:29rem;line-height:1.65;color:#d6d1c9;margin:2rem 0 0;font-size:.95rem}
+.newsletter-copy .newsletter-note{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:#aaa39a;margin-top:1.5rem}
+.newsletter-embed{background:#f6f1e8;border:1px solid rgba(231,212,173,.32);box-shadow:0 24px 60px rgba(0,0,0,.25);padding:clamp(.5rem,1.6vw,1rem)}
+.newsletter-embed iframe{display:block;width:100%;max-width:540px;min-height:305px;margin:0 auto;border:0}
+@media (max-width:800px){.newsletter-section{grid-template-columns:1fr}.newsletter-embed{width:100%}}
