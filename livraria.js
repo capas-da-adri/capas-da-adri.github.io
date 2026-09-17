@@ -52,7 +52,7 @@
       author: "Abbi Glines",
       description: "A trajetória de Woods e Della continua enquanto os dois enfrentam perdas, responsabilidades e os fantasmas do passado.",
       url: "https://link.amazon/B0dB1KyJB",
-      image: "https://www.editoraarqueiro.com.br/media/upload/conteudos/Simples_Perfeicao_IMPRENSA.jpg"
+      image: "assets/livraria/simples-perfeicao.jpg"
     }
   ];
 
