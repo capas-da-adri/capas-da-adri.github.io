@@ -1,5 +1,33 @@
 (() => {
-  const seriesBooks = [{"id": "paixao-sem-limites", "title": "Paixão sem limites", "volume": "Vol. 1", "author": "Abbi Glines", "description": "Rush e Blaire dão início a uma história intensa que abre as portas para o universo de Rosemary Beach.", "url": "https://link.amazon/B0htUasQE", "image": "data:image/webp;base64,UklGRsqZAABXRUJQVlA4IL6ZAACwnwKdASheAgQCPrE4lEelJSsgICAgIIASJaQSl5IXJMKV1MKJAv+rN+T3gYv..."}, {"id": "tentacao-sem-limites", "title": "Tentação sem limites", "volume": "Vol. 2", "author": "Abbi Glines", "description": "A história de Rush e Blaire continua em meio a escolhas, segredos e novos desafios em Rosemary Beach.", "url": "https://link.amazon/B01pRsBJk", "image": "data:image/webp;base64,UklGRqB1AABXRUJQVlA4IJR1AACwpwKdASheAgQCPrE4lEelJSsgICAgIIASJaQSl5IXJMKV1MKJAv+rN+T3gYv..."}, {"id": "amor-sem-limites", "title": "Amor sem limites", "volume": "Vol. 3", "author": "Abbi Glines", "description": "O terceiro volume acompanha Rush e Blaire em mais uma etapa de sua trajetória, fechando este arco do casal.", "url": "https://link.amazon/B03pQ80a7", "image": "data:image/webp;base64,UklGRp5eAABXRUJQVlA4IJJeAACQnQKdASheAgQCPrE4lEelJSsgICAgIIASJaQSl5IXJMKV1MKJAv+rN+T3gYv..."}];
+  const seriesBooks = [
+    {
+      id: "paixao-sem-limites",
+      title: "Paixão sem limites",
+      volume: "Vol. 1",
+      author: "Abbi Glines",
+      description: "Rush e Blaire dão início a uma história intensa que abre as portas para o universo de Rosemary Beach.",
+      url: "https://link.amazon/B0htUasQE",
+      image: "https://www.editoraarqueiro.com.br/media/upload/conteudos/PaixaoSemLimites_IMPRENSA.jpg"
+    },
+    {
+      id: "tentacao-sem-limites",
+      title: "Tentação sem limites",
+      volume: "Vol. 2",
+      author: "Abbi Glines",
+      description: "A história de Rush e Blaire continua em meio a escolhas, segredos e novos desafios em Rosemary Beach.",
+      url: "https://link.amazon/B01pRsBJk",
+      image: "https://www.editoraarqueiro.com.br/media/upload/conteudos/Tentacao_Sem_Limites_IMPRENSA.jpg"
+    },
+    {
+      id: "amor-sem-limites",
+      title: "Amor sem limites",
+      volume: "Vol. 3",
+      author: "Abbi Glines",
+      description: "O terceiro volume acompanha Rush e Blaire em mais uma etapa de sua trajetória, fechando este arco do casal.",
+      url: "https://link.amazon/B03pQ80a7",
+      image: "https://www.editoraarqueiro.com.br/media/upload/conteudos/AmorSemLimites_IMPRENSA.jpg"
+    }
+  ];
 
   const escapeHtml = (value) => String(value)
     .replaceAll("&", "&amp;")
@@ -23,7 +51,7 @@
     const cards = seriesBooks.map((book) => `
       <article class="library-card library-card--dark" id="${escapeHtml(book.id)}" data-library-category="romance series">
         <div class="library-cover library-cover--image">
-          <img src="${book.image}" alt="Capa de ${escapeHtml(book.title)}, de Abbi Glines" loading="lazy" />
+          <img src="${escapeHtml(book.image)}" alt="Capa de ${escapeHtml(book.title)}, de Abbi Glines" loading="lazy" />
         </div>
         <div class="library-card-copy">
           <p class="library-tag">Rosemary Beach · ${escapeHtml(book.volume)}</p>
