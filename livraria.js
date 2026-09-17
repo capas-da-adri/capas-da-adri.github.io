@@ -26,6 +26,33 @@
       description: "O terceiro volume acompanha Rush e Blaire em mais uma etapa de sua trajetória, fechando este arco do casal.",
       url: "https://link.amazon/B03pQ80a7",
       image: "https://www.editoraarqueiro.com.br/media/upload/conteudos/AmorSemLimites_IMPRENSA.jpg"
+    },
+    {
+      id: "rush-sem-limites",
+      title: "Rush sem limites",
+      volume: "Rush e Blaire",
+      author: "Abbi Glines",
+      description: "A história volta ao início para mostrar a chegada de Blaire a Rosemary Beach pelo ponto de vista de Rush.",
+      url: "https://link.amazon/B05kPSlG1",
+      image: "https://books.google.com/books/content?vid=ISBN9788580414110&printsec=frontcover&img=1&zoom=2&source=gbs_api"
+    },
+    {
+      id: "estranha-perfeicao",
+      title: "Estranha perfeição",
+      volume: "Woods e Della · 1",
+      author: "Abbi Glines",
+      description: "Woods e Della ganham sua própria história dentro do universo de Rosemary Beach, marcada por atração, escolhas e recomeços.",
+      url: "https://link.amazon/B021h9NA2",
+      image: "https://books.google.com/books/content?vid=ISBN9788580412819&printsec=frontcover&img=1&zoom=2&source=gbs_api"
+    },
+    {
+      id: "simples-perfeicao",
+      title: "Simples perfeição",
+      volume: "Woods e Della · 2",
+      author: "Abbi Glines",
+      description: "A trajetória de Woods e Della continua enquanto os dois enfrentam perdas, responsabilidades e os fantasmas do passado.",
+      url: "https://link.amazon/B0dB1KyJB",
+      image: "https://books.google.com/books/content?vid=ISBN9788580413571&printsec=frontcover&img=1&zoom=2&source=gbs_api"
     }
   ];
 
