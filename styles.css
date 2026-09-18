@@ -28,3 +28,51 @@
 .newsletter-embed{background:#f6f1e8;border:1px solid rgba(231,212,173,.32);box-shadow:0 24px 60px rgba(0,0,0,.25);padding:clamp(.5rem,1.6vw,1rem)}
 .newsletter-embed iframe{display:block;width:100%;max-width:540px;min-height:305px;margin:0 auto;border:0}
 @media (max-width:800px){.newsletter-section{grid-template-columns:1fr}.newsletter-embed{width:100%}}
+
+
+/* Pacotes editoriais - Capas da Adri */
+.services-section{display:block;background:#201f1d;color:#f6f1e8}
+.services-heading{max-width:930px;margin-bottom:3.4rem}
+.services-heading h2{font-size:clamp(3rem,6vw,6.4rem);margin-bottom:1.2rem}
+.services-heading>p:last-child{max-width:760px;line-height:1.65;color:#c4bdb3;margin:0}
+.plans-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:stretch}
+.plan-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-width:0;background:#f4f0e8;color:#201f1d;border:1px solid rgba(246,241,232,.14);border-radius:18px;padding:1.7rem;box-shadow:0 18px 45px rgba(0,0,0,.14)}
+.plan-card-plus{background:#ece5d8}
+.plan-card-pro{border:2px solid var(--gold);background:#fbf6ec}
+.plan-badge{position:absolute;right:1rem;top:1rem;padding:.36rem .65rem;border-radius:999px;background:var(--gold);color:#201f1d;font-family:var(--mono);font-size:.52rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.plan-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#8a632f;margin:0 0 2.4rem}
+.plan-card h3{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.75rem);font-weight:500;line-height:.98;letter-spacing:-.05em;margin:0 0 1rem}
+.plan-description{min-height:5.2rem;font-size:.85rem;line-height:1.6;color:#655f58;margin:0}
+.plan-price{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin:1.8rem 0 .85rem}
+.plan-button{display:flex;justify-content:space-between;align-items:center;gap:1rem;width:100%;padding:.95rem 1rem;background:#201f1d;color:#fff;text-decoration:none;border-radius:999px;font-size:.76rem;font-weight:600;transition:transform .2s,background .2s}
+.plan-button:hover{transform:translateY(-2px);background:#0f0f0e}
+.plan-button span{color:var(--gold-pale)}
+.plan-features{border-top:1px solid #d5cec2;margin-top:1.7rem;padding-top:1.35rem}
+.plan-features>p{font-size:.72rem;font-weight:600;margin:0 0 1rem}
+.plan-features ul{list-style:none;margin:0;padding:0;display:grid;gap:.82rem}
+.plan-features li{position:relative;padding-left:1.45rem;font-size:.79rem;line-height:1.4;color:#4d4944}
+.plan-features li:before{content:"✓";position:absolute;left:0;top:0;color:#8a632f;font-weight:700}
+.standalone-services{margin-top:4.8rem;padding-top:3rem;border-top:1px solid rgba(246,241,232,.22)}
+.standalone-head{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.6rem}
+.standalone-head h3{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:500;letter-spacing:-.05em;margin:0}
+.standalone-head .eyebrow{margin:0}
+.standalone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(246,241,232,.22)}
+.standalone-grid a{display:grid;grid-template-columns:2.2rem 1fr;column-gap:1rem;row-gap:.3rem;padding:1.25rem 1rem 1.25rem 0;border-bottom:1px solid rgba(246,241,232,.22);color:inherit;text-decoration:none}
+.standalone-grid a:nth-child(odd){border-right:1px solid rgba(246,241,232,.22);padding-right:1.5rem}
+.standalone-grid a:nth-child(even){padding-left:1.5rem}
+.standalone-grid span{grid-row:1/3;font-family:var(--mono);font-size:.56rem;color:var(--gold);padding-top:.2rem}
+.standalone-grid b{font-family:var(--serif);font-size:1.22rem;font-weight:500}
+.standalone-grid small{color:#aaa39a;font-size:.72rem;line-height:1.45}
+.standalone-grid a:hover b{color:var(--gold-pale)}
+@media (max-width:900px){
+  .plans-grid{grid-template-columns:1fr}
+  .plan-description{min-height:0}
+  .standalone-head{display:block}
+  .standalone-head h3{margin-top:.6rem}
+}
+@media (max-width:600px){
+  .plan-card{padding:1.35rem;border-radius:14px}
+  .plan-kicker{margin-bottom:1.7rem}
+  .standalone-grid{grid-template-columns:1fr}
+  .standalone-grid a,.standalone-grid a:nth-child(odd),.standalone-grid a:nth-child(even){border-right:0;padding:1.15rem 0}
+}
