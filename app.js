@@ -36,7 +36,18 @@ document.querySelectorAll('.service-toggle').forEach((toggle) => toggle.addEvent
 
 document.querySelectorAll('[data-service]').forEach((link) => link.addEventListener('click', () => {
   const select = document.querySelector('[name="servico"]');
-  const lookup = { 'Capa autoral': 'Uma capa autoral', 'Premade': 'Uma capa premade', 'Diagramação': 'Diagramação editorial' };
+  const lookup = {
+    'Pacote Básico': 'Pacote Básico',
+    'Pacote Plus': 'Pacote Plus',
+    'Pacote Pró': 'Pacote Pró',
+    'Capa autoral': 'Uma capa autoral',
+    'Premade': 'Uma capa premade',
+    'Diagramação': 'Diagramação editorial',
+    'Revisão e refinamento': 'Revisão e refinamento de texto',
+    'Publicação Amazon': 'Publicação na Amazon KDP',
+    'Landing page': 'Landing page do livro',
+    'Conteúdo redes sociais': 'Conteúdo para redes sociais'
+  };
   select.value = lookup[link.dataset.service] || '';
 }));
 
