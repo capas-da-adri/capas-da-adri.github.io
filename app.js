@@ -48,7 +48,10 @@ document.querySelectorAll('[data-service]').forEach((link) => link.addEventListe
     'Landing page': 'Landing page do livro',
     'Conteúdo redes sociais': 'Conteúdo para redes sociais'
   };
-  select.value = lookup[link.dataset.service] || '';
+  const selectedService = link.dataset.service;
+  select.value = Array.from(select.options).some((option) => option.value === selectedService)
+    ? selectedService
+    : (lookup[selectedService] || '');
 }));
 
 const heroCarousel = document.querySelector('[data-hero-carousel]');
