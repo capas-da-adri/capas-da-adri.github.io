@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e30">
+  <meta name="description" content="Solicite um diagnóstico gratuito dos processos da sua empresa e identifique oportunidades de melhoria com a Nexo Consultoria.">
+  <title>Nexo Consultoria | Diagnóstico gratuito para sua empresa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Projeto demonstrativo: marca e oferta fictícias. CSS mobile-first. */
+    :root{--ink:#132338;--navy:#101e30;--navy2:#182f46;--teal:#007e80;--mint:#bbf2dd;--sky:#e9f8f5;--cream:#f8faf8;--white:#fff;--muted:#526476;--line:#dce5e8;--shadow:0 20px 60px rgba(16,30,48,.12);--radius:20px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:94px}
+    body{margin:0;font-family:"DM Sans",Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65}
+    a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}img,svg{max-width:100%}
+    :focus-visible{outline:3px solid #36a99f;outline-offset:3px}
+    .container{width:min(1140px,calc(100% - 36px));margin-inline:auto}
+    .skip-link{position:fixed;z-index:1100;top:-80px;left:12px;background:var(--mint);color:var(--navy);padding:10px 16px;border-radius:8px}.skip-link:focus{top:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:0;border-radius:11px;padding:12px 19px;background:var(--mint);color:var(--navy);font-weight:800;line-height:1.25;text-align:center;transition:transform .2s,background .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px);background:#a0ebcf;box-shadow:0 10px 20px rgba(5,88,81,.12)}
+    .btn-dark{background:var(--navy);color:#fff}.btn-dark:hover{background:var(--navy2)}
+    .btn-block{width:100%}
+    .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:74px}
+    .logo{display:inline-flex;align-items:center;gap:10px;font:800 1.12rem Manrope,sans-serif;letter-spacing:-.05em;white-space:nowrap}
+    .logo-mark{display:grid;place-items:center;width:37px;height:37px;border-radius:10px;background:var(--navy);color:var(--mint);font:800 1.3rem Manrope,sans-serif}
+    .logo span:last-child span{color:var(--teal)}
+    .desktop-nav,.header-cta{display:none}.desktop-nav{align-items:center;gap:25px}.desktop-nav a{font-size:.86rem;font-weight:700;color:var(--muted)}.desktop-nav a:hover{color:var(--teal)}
+    .menu-btn{display:grid;place-items:center;width:43px;height:43px;background:#fff;border:1px solid var(--line);border-radius:10px;color:var(--navy)}
+    .mobile-nav{display:none;border-top:1px solid var(--line);padding:10px 18px 20px;background:white}.mobile-nav.open{display:grid;gap:4px}.mobile-nav a:not(.btn){padding:10px 7px;font-weight:700;font-size:.92rem}.mobile-nav .btn{margin-top:7px}
+    .hero{position:relative;overflow:hidden;background:var(--navy);color:white;padding:55px 0 65px}
+    .hero::before{content:"";position:absolute;width:660px;height:660px;border:1px solid rgba(187,242,221,.09);border-radius:50%;top:-340px;left:-260px;pointer-events:none}.hero::after{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(187,242,221,.13);border-radius:50%;bottom:-310px;right:-230px;pointer-events:none}
+    .hero-grid{display:grid;gap:40px;align-items:center;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;font-weight:800;font-size:.72rem;letter-spacing:.14em}.eyebrow::before{content:"";display:block;width:8px;height:8px;background:#8addbd;border-radius:50%}.hero .eyebrow{color:var(--mint)}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Manrope,Arial,sans-serif;letter-spacing:-.045em;line-height:1.14}
+    h1{font-size:clamp(2.4rem,5.5vw,4.4rem);margin:19px 0 22px;max-width:660px}h1 em{font-style:normal;color:var(--mint)}
+    .hero-copy>p{max-width:570px;color:#d3e2e7;font-size:1rem;line-height:1.85;margin-bottom:21px}
+    .hero-points{display:grid;gap:10px;margin:25px 0;padding:0;list-style:none}.hero-points li{display:flex;align-items:center;gap:10px;font-weight:600;color:#e7f3f2;font-size:.86rem}.check{display:grid;place-items:center;flex:0 0 21px;width:21px;height:21px;background:var(--mint);border-radius:50%;color:var(--navy);font-weight:900;font-size:.76rem}
+    .hero-art{display:none;max-width:430px;margin:25px auto 0}.hero-art svg{display:block;filter:drop-shadow(0 15px 30px rgba(0,0,0,.12))}
+    .form-card{padding:27px 22px;background:#fff;color:var(--ink);border:1px solid #fff;border-radius:22px;box-shadow:var(--shadow)}
+    .form-tag{display:inline-block;background:#e7f8f0;color:#086e62;padding:6px 10px;border-radius:100px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .form-card h2{font-size:clamp(1.48rem,3vw,1.95rem);margin:15px 0 8px}.form-card .form-intro{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+    .form-grid{display:grid;gap:13px}.field{display:grid;gap:5px}.field label{font-size:.78rem;font-weight:800}.field input,.field select{min-height:46px;width:100%;border:1px solid #cfdbe0;border-radius:9px;background:white;color:var(--ink);padding:10px 12px;font-size:.89rem}.field input::placeholder{color:#81909c}.field input:focus,.field select:focus{outline:2px solid #80d9bd;outline-offset:1px;border-color:#3b988a}
+    .field-hint{font-size:.69rem;color:var(--muted)}.consent{display:flex;align-items:flex-start;gap:9px;margin:15px 0}.consent input{width:16px;height:16px;margin:3px 0 0;accent-color:var(--teal);flex:none}.consent label{font-size:.73rem;line-height:1.5;color:#415363}.form-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px}.form-status{padding:10px 12px;margin-top:12px;border-radius:9px;background:#fff4d7;color:#664914;font-size:.79rem;line-height:1.5}.form-status[hidden]{display:none}
+    .mini-strip{background:#e6f3ef;border-bottom:1px solid #cee5dd}.mini-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:19px 0}.mini-item{display:flex;gap:9px;align-items:center;font-size:.83rem;font-weight:800;color:#214d48}.mini-item svg{width:20px;height:20px;color:#087e73;flex:none}
+    .section{padding:78px 0}.section-head{max-width:675px;margin:0 auto 37px;text-align:center}.section-head .eyebrow{color:var(--teal)}.section-head h2{font-size:clamp(2rem,4.6vw,3rem);margin:15px 0}.section-head p{color:var(--muted);line-height:1.85;font-size:.95rem}
+    .cards{display:grid;gap:16px}.card{background:#fff;padding:25px;border:1px solid var(--line);border-radius:var(--radius);transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card svg{height:35px;width:35px;margin-bottom:20px;color:var(--teal)}.card h3{font-size:1.1rem;margin-bottom:11px}.card p{font-size:.86rem;color:var(--muted);line-height:1.8;margin:0}
+    .process{background:#ecf3f2}.step-index{display:inline-block;font:800 2.45rem Manrope,sans-serif;letter-spacing:-.09em;color:var(--teal);margin-bottom:15px}
+    .split{display:grid;gap:31px;align-items:center}.info-panel{padding:28px;background:#dff0eb;border:1px solid #c7e3d9;border-radius:25px}.info-panel h3{font-size:1.35rem}.info-panel ol{margin:0;padding-left:20px;display:grid;gap:10px;color:#284e4a}.info-panel li{padding-left:4px;font-weight:600;font-size:.9rem}
+    .who h2{font-size:clamp(2rem,4vw,2.8rem);margin:15px 0}.who p{color:var(--muted);line-height:1.85}.who ul{margin:23px 0 0;list-style:none;padding:0;display:grid;gap:12px}.who li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;font-weight:700}.who li .check{margin-top:2px}
+    .faq-list{max-width:800px;margin:auto;display:grid;gap:12px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:0 20px}.faq-list summary{cursor:pointer;font-weight:800;list-style:none;padding:19px 26px 19px 0;position:relative;font-size:.91rem}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:"+";position:absolute;right:0;top:15px;font-size:1.4rem;color:var(--teal)}.faq-list details[open] summary::after{content:"−"}.faq-list details p{color:var(--muted);font-size:.86rem;line-height:1.8;padding-bottom:19px;margin:0}
+    .final{background:var(--navy);color:#fff;text-align:center;padding:72px 0}.final-inner{max-width:700px;margin:auto}.final h2{font-size:clamp(2rem,4.8vw,3.1rem);margin:15px 0}.final p{color:#c9dce0;margin:0 auto 27px;max-width:590px}.final .eyebrow{color:var(--mint)}
+    footer{background:#0b1623;color:#c9dce0;padding:36px 0}.footer-inner{display:flex;flex-direction:column;gap:14px;font-size:.78rem}.footer-inner .logo{color:#fff}.footer-inner p{margin:0;color:#a9bccc}.footer-inner a:not(.logo){text-decoration:underline;text-underline-offset:3px}
+    .demo-disclaimer{font-size:.73rem;background:#eaf2f1;color:#385762;padding:11px 18px;text-align:center}
+    .reveal{transition:opacity .65s ease,transform .65s ease}.js-motion .reveal:not(.visible){opacity:0;transform:translateY(18px)}
+    @media(min-width:640px){.mini-grid{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.field.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-inner{flex-direction:row;justify-content:space-between;align-items:center}}
+    @media(min-width:960px){.desktop-nav,.header-cta{display:flex}.menu-btn,.mobile-nav{display:none!important}.hero{padding:85px 0 95px}.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(380px,.9fr);gap:54px}.hero-art{display:block}.form-card{padding:31px}.cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}.split{grid-template-columns:1fr 1fr;gap:75px}.section{padding:100px 0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.js-motion .reveal:not(.visible){opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+  <div class="demo-disclaimer">Projeto demonstrativo de portfólio · Marca, oferta e contatos fictícios</div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="#inicio" aria-label="Nexo Consultoria, voltar ao início"><span class="logo-mark" aria-hidden="true">N</span><span>NEXO<span>.</span></span></a>
+      <nav class="desktop-nav" aria-label="Navegação principal"><a href="#beneficios">Benefícios</a><a href="#como-funciona">Como funciona</a><a href="#para-quem">Para quem é</a><a href="#duvidas">Dúvidas</a></nav>
+      <a class="btn header-cta" href="#formulario">Solicitar diagnóstico <span aria-hidden="true">↗</span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação para celular"><a href="#beneficios">Benefícios</a><a href="#como-funciona">Como funciona</a><a href="#para-quem">Para quem é</a><a href="#duvidas">Dúvidas</a><a class="btn" href="#formulario">Solicitar diagnóstico ↗</a></nav>
+  </header>
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Consultoria de processos para pequenas empresas</span>
+          <h1 id="hero-title">Sua empresa pode crescer <em>sem trabalhar no improviso.</em></h1>
+          <p>Descubra onde a rotina da sua equipe perde tempo, identifique gargalos e dê o primeiro passo para organizar sua operação.</p>
+          <p><strong>Solicite um diagnóstico inicial gratuito de 20 minutos, 100% online.</strong></p>
+          <ul class="hero-points"><li><span class="check" aria-hidden="true">✓</span>Conversa individual sobre o seu negócio</li><li><span class="check" aria-hidden="true">✓</span>Identificação de pontos de atenção</li><li><span class="check" aria-hidden="true">✓</span>Sem compromisso de contratação</li></ul>
+          <div class="hero-art" aria-hidden="true"><svg viewBox="0 0 440 210" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="15" width="410" height="180" rx="22" fill="#1c3a50" stroke="#4b7980"/><rect x="37" y="35" width="215" height="140" rx="10" fill="#f0fbf8"/><rect x="52" y="51" width="65" height="8" rx="4" fill="#93c7b9"/><rect x="52" y="67" width="118" height="5" rx="2" fill="#cfdfde"/><rect x="53" y="144" width="16" height="17" rx="3" fill="#6bc7a7"/><rect x="76" y="122" width="16" height="39" rx="3" fill="#28a48f"/><rect x="99" y="109" width="16" height="52" rx="3" fill="#008a7f"/><rect x="122" y="84" width="16" height="77" rx="3" fill="#125e6b"/><path d="M162 131l23-23 17 9 31-43" fill="none" stroke="#008a7f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M223 74h10v10" fill="none" stroke="#008a7f" stroke-width="5" stroke-linecap="round"/><rect x="274" y="38" width="128" height="59" rx="10" fill="#b8eed9"/><circle cx="294" cy="58" r="7" fill="#187e76"/><rect x="307" y="53" width="72" height="6" rx="3" fill="#2e7b70"/><rect x="287" y="72" width="94" height="6" rx="3" fill="#65ab9c"/><rect x="274" y="111" width="128" height="59" rx="10" fill="#254b5b"/><circle cx="294" cy="132" r="7" fill="#b8eed9"/><rect x="307" y="128" width="72" height="6" rx="3" fill="#b8eed9"/><rect x="287" y="147" width="94" height="6" rx="3" fill="#769eab"/></svg></div>
+        </div>
+        <!-- Integração real: edite LEAD_DESTINATION_EMAIL no JavaScript ao final do arquivo. -->
+        <div class="form-card reveal" id="formulario">
+          <span class="form-tag">Diagnóstico inicial gratuito</span>
+          <h2>Vamos entender o desafio da sua empresa?</h2>
+          <p class="form-intro">Preencha os dados para solicitar uma conversa inicial com nossa equipe.</p>
+          <form id="lead-form" method="POST" action="#formulario">
+            <input type="hidden" name="_subject" value="Novo lead | Diagnóstico Nexo Consultoria">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <div class="form-grid">
+              <div class="field"><label for="nome">Seu nome *</label><input id="nome" name="nome" type="text" autocomplete="name" minlength="2" maxlength="80" required placeholder="Como podemos chamar você?"></div>
+              <div class="field"><label for="email">E-mail profissional *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" required placeholder="voce@suaempresa.com.br"></div>
+              <div class="field"><label for="whatsapp">WhatsApp com DDD *</label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" minlength="10" maxlength="22" required placeholder="(11) 99999-9999"><span class="field-hint">Use um número no qual você possa receber nosso contato.</span></div>
+              <div class="field"><label for="empresa">Nome da empresa *</label><input id="empresa" name="empresa" type="text" autocomplete="organization" minlength="2" maxlength="100" required placeholder="Nome do seu negócio"></div>
+              <div class="field"><label for="desafio">Qual o principal desafio? *</label><select id="desafio" name="desafio" required><option value="" selected disabled>Selecione uma opção</option><option value="Organizar processos">Organizar processos</option><option value="Reduzir retrabalho">Reduzir retrabalho</option><option value="Delegar tarefas">Delegar tarefas</option><option value="Melhorar atendimento">Melhorar atendimento</option><option value="Outro desafio">Outro desafio</option></select></div>
+            </div>
+            <div class="consent"><input id="consentimento" name="consentimento" type="checkbox" value="Autorizo contato sobre este diagnostico" required><label for="consentimento">Autorizo contato por e-mail ou WhatsApp exclusivamente sobre o diagnóstico solicitado. Meus dados serão usados para responder a este pedido. *</label></div>
+            <button class="btn btn-block btn-dark" type="submit">Quero meu diagnóstico gratuito <span aria-hidden="true">→</span></button>
+            <p class="form-note">Sem pagamento para solicitar a conversa inicial. Campos com * são obrigatórios.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="mini-strip" aria-label="Diferenciais"><div class="container mini-grid"><div class="mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>20 minutos de conversa inicial</div><div class="mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Atendimento 100% online</div><div class="mini-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3 8-8 10-5-2-8-5-8-10V7z"/><path d="M9 12l2 2 4-4"/></svg>Sem compromisso de contratação</div></div></div>
+    <section class="section" id="beneficios"><div class="container"><div class="section-head reveal"><span class="eyebrow">O que você ganha</span><h2>Mais clareza para tomar as próximas decisões.</h2><p>O primeiro passo não é contratar uma solução pronta. É entender o que acontece na rotina da sua empresa.</p></div><div class="cards three"><article class="card reveal"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="17" cy="17" r="11"/><path d="m25 25 9 9M12 17h10M17 12v10"/></svg><h3>Enxergue gargalos</h3><p>Converse sobre os pontos da operação que podem estar atrasando entregas ou gerando retrabalho.</p></article><article class="card reveal"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="8" width="30" height="24" rx="4"/><path d="M11 25l6-7 5 4 7-9"/></svg><h3>Defina prioridades</h3><p>Identifique quais desafios vale a pena investigar primeiro, de acordo com a realidade do negócio.</p></article><article class="card reveal"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 13h28M6 21h17M6 29h23M30 25l4 4-4 4"/></svg><h3>Conheça próximos passos</h3><p>Entenda como um projeto de organização de processos pode ser estruturado após a conversa inicial.</p></article></div></div></section>
+    <section class="section process" id="como-funciona"><div class="container"><div class="section-head reveal"><span class="eyebrow">Processo simples</span><h2>Três passos para começar.</h2><p>Sem reunião de vendas interminável e sem formulário complicado.</p></div><div class="cards three"><article class="card reveal"><span class="step-index">01.</span><h3>Preencha o formulário</h3><p>Compartilhe seus dados de contato e o principal desafio da sua empresa.</p></article><article class="card reveal"><span class="step-index">02.</span><h3>Alinhe um horário</h3><p>A equipe entra em contato para verificar a disponibilidade e combinar uma conversa online.</p></article><article class="card reveal"><span class="step-index">03.</span><h3>Converse sobre a operação</h3><p>Durante o diagnóstico inicial, mapeamos o contexto e discutimos possíveis caminhos de melhoria.</p></article></div></div></section>
+    <section class="section" id="para-quem"><div class="container split"><div class="who reveal"><span class="eyebrow" style="color:var(--teal)">Para quem é</span><h2>Seu negócio cresceu. Seus processos acompanharam?</h2><p>Esta conversa é destinada a gestores de pequenos negócios que querem entender sua operação antes de decidir sobre novas ferramentas, contratações ou mudanças internas.</p><ul><li><span class="check" aria-hidden="true">✓</span>Empresas em que tudo depende do gestor</li><li><span class="check" aria-hidden="true">✓</span>Equipes com tarefas repetidas ou pouco documentadas</li><li><span class="check" aria-hidden="true">✓</span>Negócios que precisam organizar fluxos e responsabilidades</li></ul></div><div class="info-panel reveal"><span class="eyebrow" style="color:var(--teal)">Na conversa inicial</span><h3>O que vamos explorar juntos</h3><ol><li>Como as demandas chegam e são distribuídas.</li><li>Em que etapas surgem atrasos ou retrabalho.</li><li>Quais processos têm maior impacto na rotina.</li><li>Que tipo de próximo passo faria sentido investigar.</li></ol><p style="margin:20px 0 0;font-size:.78rem;color:#42665f">O diagnóstico inicial é uma conversa exploratória, não uma auditoria completa nem promessa de resultados.</p></div></div></section>
+    <section class="section process" id="duvidas"><div class="container"><div class="section-head reveal"><span class="eyebrow">Perguntas frequentes</span><h2>Antes de solicitar seu diagnóstico</h2></div><div class="faq-list"><details class="reveal"><summary>O diagnóstico inicial é realmente gratuito?</summary><p>Na oferta demonstrada nesta página, a conversa inicial de 20 minutos não tem custo e não exige contratação. Em uma campanha real, as condições devem ser confirmadas com a empresa responsável.</p></details><details class="reveal"><summary>Preciso ter uma empresa grande?</summary><p>Não. A proposta é conversar com gestores de pequenos negócios, independentemente de possuírem uma grande equipe.</p></details><details class="reveal"><summary>O diagnóstico resolve todos os problemas da operação?</summary><p>Não. A conversa inicial serve para compreender o contexto e identificar temas que merecem investigação. Um projeto de melhoria mais profundo exigiria escopo próprio.</p></details><details class="reveal"><summary>O que acontece depois do envio do formulário?</summary><p>Em uma implementação comercial real, os dados são encaminhados para o canal configurado e a equipe entra em contato para propor um horário. Nesta versão de portfólio, o envio fica desativado até que o proprietário configure um destinatário válido.</p></details></div></div></section>
+    <section class="final" aria-labelledby="final-title"><div class="container final-inner reveal"><span class="eyebrow">Pronto para organizar a operação?</span><h2 id="final-title">Comece entendendo o que precisa mudar.</h2><p>Reserve um momento para olhar seus processos com mais clareza. Solicite a conversa inicial gratuita no formulário acima.</p><a class="btn" href="#formulario">Solicitar meu diagnóstico <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer><div class="container footer-inner"><a class="logo" href="#inicio"><span class="logo-mark" aria-hidden="true">N</span><span>NEXO<span>.</span></span></a><p>© <span id="year">2026</span> Nexo Consultoria. Projeto fictício para portfólio.</p><a href="mailto:contato@nexo.example">contato@nexo.example</a></div></footer>
+  <script>
+    "use strict";
+    // 1. Menu responsivo e acessível.
+    const menuButton=document.getElementById("menu-btn");
+    const mobileNav=document.getElementById("mobile-nav");
+    function setMenu(open){mobileNav.classList.toggle("open",open);menuButton.setAttribute("aria-expanded",String(open));menuButton.setAttribute("aria-label",open?"Fechar menu":"Abrir menu");}
+    menuButton.addEventListener("click",()=>setMenu(!mobileNav.classList.contains("open")));
+    mobileNav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>setMenu(false)));
+    document.addEventListener("keydown",event=>{if(event.key==="Escape"&&mobileNav.classList.contains("open")){setMenu(false);menuButton.focus();}});
+    document.addEventListener("click",event=>{if(!mobileNav.contains(event.target)&&!menuButton.contains(event.target))setMenu(false);});
+    window.addEventListener("resize",()=>{if(window.innerWidth>=960)setMenu(false);});
+
+    // 2. Destino dos leads. Substitua pelo endereço real e verifique-o no serviço FormSubmit.
+    // Sem um endereço configurado, a demonstração não coleta nem transmite dados pessoais.
+    const LEAD_DESTINATION_EMAIL="SUBSTITUA_PELO_SEU_EMAIL";
+    const form=document.getElementById("lead-form");
+    const formStatus=document.getElementById("form-status");
+    const isConfigured=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(LEAD_DESTINATION_EMAIL)&&!LEAD_DESTINATION_EMAIL.includes(".example");
+    if(isConfigured){form.action="https://formsubmit.co/"+encodeURIComponent(LEAD_DESTINATION_EMAIL);}
+    form.addEventListener("submit",event=>{
+      if(!isConfigured){event.preventDefault();formStatus.hidden=false;formStatus.textContent="Demonstração: os campos foram validados, mas nenhum dado foi enviado. Para receber leads reais, configure LEAD_DESTINATION_EMAIL no código e ative o destinatário no serviço de formulários.";}
+    });
+
+    // 3. Animações discretas, com suporte a movimento reduzido.
+    if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      const elements=document.querySelectorAll(".reveal");
+      const observer=new IntersectionObserver((entries,instance)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");instance.unobserve(entry.target);}});},{threshold:.06,rootMargin:"0px 0px -15px 0px"});
+      elements.forEach(element=>observer.observe(element));
+      document.documentElement.classList.add("js-motion");
+    }
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
