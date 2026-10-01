@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel | Capas da Adri</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<main class="shell">
+<section id="loginCard" class="card login">
+<h1>Capas da Adri</h1><p class="muted">Painel administrativo</p>
+<form id="loginForm">
+<label>E-mail<input id="email" type="email" autocomplete="username" required></label>
+<label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
+<button type="submit">Entrar</button><p id="loginMsg" class="msg"></p>
+</form>
+</section>
+<section id="dashboard" hidden>
+<header><div><h1>Pedidos</h1><p class="muted">Acompanhe orçamentos e vendas.</p></div><button id="logout" class="secondary">Sair</button></header>
+<div class="stats"><div><strong id="total">0</strong><span>Pedidos</span></div><div><strong id="paid">0</strong><span>Pagos</span></div><div><strong id="revenue">R$ 0,00</strong><span>Faturamento</span></div></div>
+<p id="dashMsg" class="msg"></p><div id="orders" class="orders"></div>
+</section>
+</main><script src="admin.js"></script></body></html>
