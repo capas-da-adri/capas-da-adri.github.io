@@ -180,6 +180,13 @@ quoteForm?.addEventListener('submit', async (event) => {
 
     quoteForm.reset();
     helper.textContent = 'Pedido enviado com sucesso. Em breve, respondo pelo e-mail informado.';
+
+    // Registra no GA4 apenas pedidos confirmados pelo servidor.
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'pedido_orcamento', {
+        service: form.get('servico'),
+      });
+    }
   } catch {
     helper.textContent = 'Não foi possível enviar agora. Tente novamente em alguns minutos.';
   } finally {
