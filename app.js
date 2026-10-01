@@ -147,16 +147,26 @@ document.querySelector('.modal-close').addEventListener('click', () => modal.clo
 modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
 modal.querySelector('a').addEventListener('click', () => modal.close());
 
-// Mede a intenção de orçamento em todos os links que levam ao formulário.
-document.querySelectorAll('a[href="#orcamento"]').forEach((link) => {
-  link.addEventListener('click', () => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'clique_orcamento', {
-        link_text: link.textContent.trim(),
-        service: link.dataset.service || 'nao_informado',
-      });
-    }
+// Mede a intenção de orçamento usando delegação de eventos.
+// Assim, links do formulário presentes ou inseridos depois do carregamento também são capturados.
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href="#orcamento"]');
+  if (!link) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'clique_orcamento',
+    link_text: link.textContent.trim(),
+    service: link.dataset.service || 'nao_informado',
   });
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'clique_orcamento', {
+      link_text: link.textContent.trim(),
+      service: link.dataset.service || 'nao_informado',
+      transport_type: 'beacon',
+    });
+  }
 });
 
 const quoteForm = document.querySelector('#quoteForm');
