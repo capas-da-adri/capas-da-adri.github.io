@@ -36,22 +36,15 @@ document.querySelectorAll('.service-toggle').forEach((toggle) => toggle.addEvent
 
 document.querySelectorAll('[data-service]').forEach((link) => link.addEventListener('click', () => {
   const select = document.querySelector('[name="servico"]');
-  const lookup = {
-    'Pacote Básico': 'Pacote Básico',
-    'Pacote Plus': 'Pacote Plus',
-    'Pacote Pró': 'Pacote Pró',
-    'Capa autoral': 'Uma capa autoral',
-    'Premade': 'Uma capa premade',
-    'Diagramação': 'Diagramação editorial',
-    'Revisão e refinamento': 'Revisão e refinamento de texto',
-    'Publicação Amazon': 'Publicação na Amazon KDP',
-    'Landing page': 'Landing page do livro',
-    'Conteúdo redes sociais': 'Conteúdo para redes sociais'
-  };
-  const selectedService = link.dataset.service;
-  select.value = Array.from(select.options).some((option) => option.value === selectedService)
-    ? selectedService
-    : (lookup[selectedService] || '');
+  if (!select) return;
+
+  const selectedService = link.dataset.service || '';
+  const exactOption = Array.from(select.options).find((option) => option.value === selectedService);
+
+  if (exactOption) {
+    select.value = exactOption.value;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
 }));
 
 const heroCarousel = document.querySelector('[data-hero-carousel]');
