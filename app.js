@@ -147,6 +147,18 @@ document.querySelector('.modal-close').addEventListener('click', () => modal.clo
 modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
 modal.querySelector('a').addEventListener('click', () => modal.close());
 
+// Mede a intenção de orçamento em todos os links que levam ao formulário.
+document.querySelectorAll('a[href="#orcamento"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'clique_orcamento', {
+        link_text: link.textContent.trim(),
+        service: link.dataset.service || 'nao_informado',
+      });
+    }
+  });
+});
+
 const quoteForm = document.querySelector('#quoteForm');
 const helper = document.querySelector('#formHelper');
 const quoteEndpoint = 'https://basfrphvvjfhbozxaeyw.supabase.co/functions/v1/quote-request';
